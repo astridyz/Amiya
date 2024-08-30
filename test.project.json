@@ -1,0 +1,17 @@
+{
+    "name": "Amiya",
+    "tree": {
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "Packages": {
+                "$path": "Packages",
+                "Amiya": {
+                    "$path": "src"
+                }
+            },
+            "Stories": {
+                "$path": "stories"
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+# Wally
+wally.lock
+Packages
+
+# Rojo
+sourcemap.json
+
+# Ignoring Lucide icons
+assets
+tarmac-manifest.toml
