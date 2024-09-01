@@ -1,6 +1,9 @@
 --!strict
 local Components = script.Parent.Parent
 local Amiya = Components.Parent
+local Modules = Amiya.Modules
+
+local Scheme = require(Modules.Schemes.Default)
 
 local Fusion = require(Amiya.Parent.Fusion)
 local Children = Fusion.Children
@@ -18,12 +21,13 @@ local function TopAppBar(
 	return scope:New 'Frame' {
 		Name = 'TopAppBar',
 		
-		BackgroundColor3 = Color3.new(0.07, 0.07, 0.07),
+		BackgroundColor3 = Scheme.Color.Header,
 		ZIndex = props.ZIndex or 1,
-		Size = UDim2.new(1, 0, 0, 50),
+		Size = UDim2.new(1.2, 0, 0.08, 0),
+		Position = UDim2.fromScale(-0.1, 0),
 		
 		[Children] = {
-			scope:New 'Frame' {
+			deriveScope:New 'Frame' {
 				Name = 'Buttons',
 				
 				BackgroundTransparency = 1,
@@ -32,14 +36,16 @@ local function TopAppBar(
 				[Children] = {
 					deriveScope:New 'UIListLayout' {
 						FillDirection = Enum.FillDirection.Horizontal,
-						HorizontalAlignment = Enum.HorizontalAlignment.Right,
+						HorizontalAlignment = Enum.HorizontalAlignment.Left,
 						VerticalAlignment = Enum.VerticalAlignment.Center,
 						SortOrder = Enum.SortOrder.LayoutOrder,
 					},
 
                     (props :: {})[Children]
 				}
-			}
+			},
+			
+			deriveScope:New 'UICorner' {}
 		}
     } :: TopAppBar
 end

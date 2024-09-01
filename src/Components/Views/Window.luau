@@ -1,7 +1,10 @@
 --!strict
 local Components = script.Parent.Parent
 local Amiya = Components.Parent
-local Assets = require(Amiya.Modules.Assets)
+local Modules = Amiya.Modules
+
+local Assets = require(Modules.Assets)
+local Scheme = require(Modules.Schemes.Default)
 
 local Fusion = require(Amiya.Parent.Fusion)
 local Children = Fusion.Children
@@ -39,42 +42,25 @@ local function Window(
 				BackgroundTransparency = 1,
 				Image = Assets.Components.Background,
 				Size = UDim2.fromScale(1, 1),
-				ImageColor3 = Color3.new(0.1, 0.1, 0.1),
-				
-				[Children] = {
-					Fusion.Computed(deriveScope, function(use)
-						return
-							if props.Stroke and use(props.Stroke) then
-							deriveScope:New 'ImageLabel' {
-								Name = 'Stroke',
-
-								BackgroundTransparency = 1,
-								Image = Assets.Components.BgStroke,
-								Size = UDim2.fromScale(1, 1),
-								ImageColor3 = Color3.new(1, 1, 1)
-							}
-						else 
-							nil
-					end),
-					
-					(props :: {})[Children]
-				}
+				ImageColor3 = Scheme.Color.Background
 			},
 			
 			deriveScope:New 'ImageLabel' {
 				Name = 'Border',
 
 				BackgroundTransparency = 1,
-				Image = Assets.Components.BgEffects,
+				Image = Assets.Components.BgStroke,
 				Size = UDim2.fromScale(1, 1),
-				ImageColor3 = Color3.new(1, 1, 1)
+				ImageColor3 = Scheme.Color.Header
 			},
 
 			deriveScope:New 'UIAspectRatioConstraint' {
-				AspectRatio = 1.5,
+				AspectRatio = 2/3,
 				AspectType = Enum.AspectType.ScaleWithParentSize,
 				DominantAxis = Enum.DominantAxis.Width,
-			}
+			},
+			
+			(props :: {})[Children]
 		}
 	} :: Window
 end

@@ -11,14 +11,14 @@ export type Properties<others = {}> = others & {
     [Children]: Children?
 }
 
-export type Window<derived = Instance> = Instance & derived & {
+export type Window<derived = Instance> = Frame & derived & {
     Body: ImageLabel & derived,
     Border: ImageLabel,
     UIAspectRatioConstraint: UIAspectRatioConstraint
 }
 
-export type TopAppBar = Instance & {
-    Buttons: Frame & {UIListLayout: UIListLayout}
+export type TopAppBar<buttons = {}> = Frame & {
+    Buttons: Frame & buttons & {UIListLayout: UIListLayout} 
 }
 
 return 0;
