@@ -6,12 +6,9 @@ export type ComponentScope = Fusion.Scope<{
     New: typeof(Fusion.New)
 }>
 
-export type Properties<others = {}> = others & {} & {
-    Visible: boolean,
-    Position: UDim2,
-    Size: UDim2,
-    ZIndex: number,
-    [Children]: { Instance }
+export type Properties<others = {}> = others & {
+    ZIndex: number?,
+    [Children]: Children?
 }
 
 export type Window<derived = Instance> = Instance & derived & {

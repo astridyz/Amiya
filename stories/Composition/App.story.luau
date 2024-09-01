@@ -11,7 +11,16 @@ local function Story(props)
 
     local window = scope:Window {
         [Children] = {
-            scope:TopAppBar {}
+			scope:TopAppBar {},
+			
+			--// Content test
+			scope:New "Frame" {
+				BackgroundTransparency = 1,
+				AnchorPoint = UDim2.fromScale(5, 5),
+
+				Position = UDim2.fromScale(0.1, 0.1),
+				Size = UDim2.fromScale(0.8, 0.9)
+			}
         }
     }
     window.Parent = props.target

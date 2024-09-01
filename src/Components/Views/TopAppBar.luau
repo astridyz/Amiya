@@ -18,7 +18,7 @@ local function TopAppBar(
 	return scope:New 'Frame' {
 		Name = 'TopAppBar',
 		
-		BackgroundColor3 = Color3.new(0.0784314, 0.0784314, 0.0784314),
+		BackgroundColor3 = Color3.new(0.07, 0.07, 0.07),
 		ZIndex = props.ZIndex or 1,
 		Size = UDim2.new(1, 0, 0, 50),
 		

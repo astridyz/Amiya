@@ -11,7 +11,11 @@ type Window<D = Instance> = Types.Window<D>
 
 local function Window(
 	scope: Types.ComponentScope,
-	props: Types.Properties
+	props: Types.Properties<{
+		Visible: boolean?,
+		Position: UDim2?,
+		Size: UDim2?
+	}>
 ): Window
 	
 	local deriveScope = Fusion.deriveScope(scope) 
@@ -30,22 +34,24 @@ local function Window(
 		[Children] = {
 			deriveScope:New 'ImageLabel' {
 				Name = 'Body',
+				ZIndex = 1,
 				
 				BackgroundTransparency = 1,
 				Image = Assets.Components.Background,
 				Size = UDim2.fromScale(1, 1),
-				ImageColor3 = Color3.new(0.101961, 0.101961, 0.101961),
+				ImageColor3 = Color3.new(0.1, 0.1, 0.1),
 				
 				[Children] = (props :: {})[Children]
 			},
 			
 			deriveScope:New 'ImageLabel' {
 				Name = 'Border',
+				ZIndex = 1,
 
 				BackgroundTransparency = 1,
 				Image = Assets.Components.BgEffects,
 				Size = UDim2.fromScale(1, 1),
-				ImageColor3 = Color3.new(1, 1, 1)
+				ImageColor3 = Color3.new(0.07, 0.07, 0.07)
 			},
 
 			deriveScope:New 'UIAspectRatioConstraint' {
