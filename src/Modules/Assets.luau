@@ -3,6 +3,7 @@ return {
 	Components = {
 		Background = "rbxassetid://104940702432770",
 		BgEffects = "rbxassetid://116401327117879",
+		BgStroke = "rbxassetid://118898077095722",
 		TopAppBar = "rbxassetid://138546426593584",
 	},
 }

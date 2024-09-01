@@ -9,7 +9,9 @@ local Components = Amiya.Components
 local function Story(props)
     local scope = Fusion.scoped(Fusion, Components)
 
-    local window = scope:Window {
+	local window = scope:Window {
+		Stroke = true,
+		
         [Children] = {
 			scope:TopAppBar {},
 			
@@ -18,8 +20,8 @@ local function Story(props)
 				BackgroundTransparency = 1,
 				AnchorPoint = UDim2.fromScale(5, 5),
 
-				Position = UDim2.fromScale(0.1, 0.1),
-				Size = UDim2.fromScale(0.8, 0.9)
+				Position = UDim2.fromScale(0.1, 0.12),
+				Size = UDim2.fromScale(0.8, 0.88)
 			}
         }
     }
