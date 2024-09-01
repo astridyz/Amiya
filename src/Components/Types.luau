@@ -15,6 +15,12 @@ export type Properties<others = {}> = others & {} & {
 }
 
 export type Window<derived = Instance> = Instance & derived & {
+    Body: ImageLabel & derived,
+    Border: ImageLabel,
+    UIAspectRatioConstraint: UIAspectRatioConstraint
+}
+
+export type TopAppBar = Instance & {
     
 }
 

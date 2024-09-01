@@ -1,7 +1,7 @@
 --!strict
 local Components = script.Parent.Parent
 local Amiya = Components.Parent
-local Icons = require(Amiya.Modules.Icons)
+local Assets = require(Amiya.Modules.Assets)
 
 local Fusion = require(Amiya.Parent.Fusion)
 local Children = Fusion.Children
@@ -23,14 +23,25 @@ local function Window(
 		Position = props.Position or UDim2.fromScale(0.5, 0.5),
 		Size = props.Size or UDim2.fromOffset(600, 600),
 
-		BackgroundColor3 = Color3.new(0.15, 0.15, 0.15),
+		BackgroundTransparency = 1,
 
 		[Children] = {
 			scope:New 'ImageLabel' {
-				Name = 'Border',
+				Name = 'Body',
 				
 				BackgroundTransparency = 1,
-				Image = Icons.Window,
+				Image = Assets.Components.Background,
+				Size = UDim2.fromScale(1, 1),
+				ImageColor3 = Color3.new(0.101961, 0.101961, 0.101961),
+				
+				[Children] = (props :: {})[Children]
+			},
+			
+			scope:New 'ImageLabel' {
+				Name = 'Border',
+
+				BackgroundTransparency = 1,
+				Image = Assets.Components.BgEffects,
 				Size = UDim2.fromScale(1, 1),
 				ImageColor3 = Color3.new(1, 1, 1)
 			},
@@ -39,9 +50,7 @@ local function Window(
 				AspectRatio = 1.5,
 				AspectType = Enum.AspectType.ScaleWithParentSize,
 				DominantAxis = Enum.DominantAxis.Width,
-			},
-
-			scope:New 'UICorner' {}
+			}
 		}
 	} :: Window
 end

@@ -1,7 +1,7 @@
 name = "Amiya"
 
 [[inputs]]
-glob = "assets/*.png"
+glob = "assets/**/*.png"
 codegen = true
-codegen-path = "src/Modules/Icons.luau"
+codegen-path = "src/Modules/Assets.luau"
 codegen-base-path = "assets"
