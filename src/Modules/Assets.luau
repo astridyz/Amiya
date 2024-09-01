@@ -5,4 +5,7 @@ return {
 		BgStroke = "rbxassetid://98494424042561",
 		TopAppBar = "rbxassetid://138546426593584",
 	},
+	Icons = {
+		Info = "rbxassetid://135909314509863",
+	},
 }

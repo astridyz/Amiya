@@ -13,7 +13,10 @@ local function Story(props)
 		Stroke = true,
 		
         [Children] = {
-			scope:TopAppBar {},
+			scope:TopAppBar {
+				Title = 'Entity #350',
+				Subtitle = 'Host: Annah_Banna'	
+			},
 			
 			--// Content test
 			scope:New "Frame" {
