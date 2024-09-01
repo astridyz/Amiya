@@ -21,7 +21,7 @@ export type Window<derived = Instance> = Instance & derived & {
 }
 
 export type TopAppBar = Instance & {
-    
+    Buttons: Frame & {UIListLayout: UIListLayout}
 }
 
 return 0;

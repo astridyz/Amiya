@@ -13,6 +13,8 @@ local function Window(
 	scope: Types.ComponentScope,
 	props: Types.Properties
 ): Window
+	
+	local deriveScope = Fusion.deriveScope(scope) 
 
 	return scope:New 'Frame' {
 		Name = 'Window',
@@ -26,7 +28,7 @@ local function Window(
 		BackgroundTransparency = 1,
 
 		[Children] = {
-			scope:New 'ImageLabel' {
+			deriveScope:New 'ImageLabel' {
 				Name = 'Body',
 				
 				BackgroundTransparency = 1,
@@ -37,7 +39,7 @@ local function Window(
 				[Children] = (props :: {})[Children]
 			},
 			
-			scope:New 'ImageLabel' {
+			deriveScope:New 'ImageLabel' {
 				Name = 'Border',
 
 				BackgroundTransparency = 1,
@@ -46,7 +48,7 @@ local function Window(
 				ImageColor3 = Color3.new(1, 1, 1)
 			},
 
-			scope:New 'UIAspectRatioConstraint' {
+			deriveScope:New 'UIAspectRatioConstraint' {
 				AspectRatio = 1.5,
 				AspectType = Enum.AspectType.ScaleWithParentSize,
 				DominantAxis = Enum.DominantAxis.Width,
