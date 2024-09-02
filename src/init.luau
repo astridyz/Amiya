@@ -1,5 +1,6 @@
-local Components = require(script.Components)
+local Modules = require(script.Modules)
 
 return {
-    Components = Components
+    Components = require(script.Components),
+    Icons = Modules.Assets.Icons
 }

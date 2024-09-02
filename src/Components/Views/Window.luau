@@ -15,10 +15,9 @@ type Window<D = Instance> = Types.Window<D>
 local function Window(
 	scope: Types.ComponentScope,
 	props: Types.Properties<{
-		Visible: boolean?,
+		Visible: Fusion.UsedAs<boolean>?,
 		Position: UDim2?,
-		Size: UDim2?,
-		Stroke: Fusion.UsedAs<boolean>?
+		Size: UDim2?
 	}>
 ): Window
 	

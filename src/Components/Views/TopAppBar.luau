@@ -57,6 +57,8 @@ local function TopAppBar(
 							},
 							
 							deriveScope:New 'ImageLabel' {
+								name = 'Icon',
+
 								BackgroundTransparency = 1,
 								Image = Assets.Icons.Info,
 								ImageColor3 = Color3.new(0, 0, 0),
@@ -64,7 +66,7 @@ local function TopAppBar(
 								
 								AnchorPoint = Vector2.new(0.5, 0.5),
 								Position = UDim2.fromScale(0.5, 0.5),
-								Size = UDim2.fromScale(0.7, 0.7)
+								Size = UDim2.fromScale(0.6, 0.6)
 							}
 						}
 					},
@@ -89,7 +91,7 @@ local function TopAppBar(
 								Font = Enum.Font.GothamBold,
 								Text = props.Title or 'Info',
 								TextColor3 = Color3.new(0, 0, 0),
-								TextSize = 30,
+								TextSize = 25,
 								TextXAlignment = Enum.TextXAlignment.Left,
 								
 								Size = UDim2.fromScale(0, 0.5)
@@ -100,12 +102,12 @@ local function TopAppBar(
 									if props.Subtitle and use(props.Subtitle)
 								then
 									deriveScope:New 'TextLabel' {
-										name = 'Title',
+										name = 'Subtitle',
 
 										BackgroundTransparency = 1,
 										Size = UDim2.fromScale(0, 0.3),
 										LayoutOrder = 2,
-										Font = Enum.Font.GothamBold,
+										Font = Enum.Font.GothamMedium,
 										Text = props.Subtitle,
 										TextColor3 = Color3.new(0.239216, 0.239216, 0.239216),
 										TextSize = 20,
@@ -127,9 +129,13 @@ local function TopAppBar(
 				[Children] = {
 					deriveScope:New 'UIListLayout' {
 						FillDirection = Enum.FillDirection.Horizontal,
-						HorizontalAlignment = Enum.HorizontalAlignment.Left,
+						HorizontalAlignment = Enum.HorizontalAlignment.Right,
 						VerticalAlignment = Enum.VerticalAlignment.Center,
 						SortOrder = Enum.SortOrder.LayoutOrder,
+					},
+
+					scope:New "UIPadding" {
+						PaddingRight = UDim.new(0, 7),
 					},
 
                     (props :: {})[Children]

@@ -10,22 +10,31 @@ local function Story(props)
     local scope = Fusion.scoped(Fusion, Components)
 
 	local window = scope:Window {
-		Stroke = true,
-		
         [Children] = {
 			scope:TopAppBar {
 				Title = 'Entity #350',
-				Subtitle = 'Host: Annah_Banna'	
-			},
-			
-			--// Content test
-			scope:New "Frame" {
-				BackgroundTransparency = 1,
-				AnchorPoint = UDim2.fromScale(5, 5),
+				Subtitle = 'Host: Annah_Banna',
 
-				Position = UDim2.fromScale(0.1, 0.12),
-				Size = UDim2.fromScale(0.8, 0.88)
-			}
+				[Children] = {
+					
+					--// Button test
+					scope:New 'ImageLabel' {
+						Size = UDim2.fromScale(0.6, 0.6),
+						Image = Amiya.Icons.CircleX,
+						ImageColor3 = Color3.new(0, 0, 0),
+						BackgroundTransparency = 1,
+						AnchorPoint = Vector2.new(0.5, 0.5),
+						Position = UDim2.fromScale(0.5, 0.5),
+						ScaleType = Enum.ScaleType.Fit,
+
+						[Children] = {
+							scope:New 'UIAspectRatioConstraint' {
+								AspectRatio = 1
+							}
+						}
+					}
+				}
+			},
         }
     }
     window.Parent = props.target
