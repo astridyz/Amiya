@@ -46,7 +46,7 @@ local function TopAppBar(
 					},
 					
 					deriveScope:New 'Frame' {
-						Name = 'Icon',
+						Name = 'IconBase',
 						
 						BackgroundTransparency = 1,
 						Size = UDim2.fromScale(1, 1),
