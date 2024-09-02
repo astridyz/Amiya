@@ -35,8 +35,10 @@ export type TopAppBar<buttons = {}> = Frame & {
     } & buttons
 }
 
-export type AppBarButton = TextButton & {
+export type Button<derived = {}> = TextButton & derived
+
+export type AppBarButton = Button<{
     Icon: ImageLabel
-}
+}>
 
 return 0;

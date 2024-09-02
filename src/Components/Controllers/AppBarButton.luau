@@ -8,6 +8,8 @@ local Assets = require(Modules.Assets)
 local Fusion = require(Amiya.Parent.Fusion)
 local Children = Fusion.Children
 
+local Button = require(script.Parent.Button)
+
 local Types = require(Components.Types)
 type AppBarButton = Types.AppBarButton
 
@@ -16,22 +18,16 @@ local function AppBarButton(
 	props: Types.Properties<{
         Icon: string?,
         Size: Fusion.UsedAs<UDim2>,
-        LayoutOrder: Fusion.UsedAs<number>,
-        onClick: () -> ()
+        LayoutOrder: Fusion.UsedAs<number>?,
+        OnClick: () -> ()?
     }>
 ): AppBarButton
 
-    local deriveScope = Fusion.deriveScope(scope)
-
-    return scope:New 'TextButton' {
-        name = 'AppBarButton',
-        BackgroundTransparency = 1,
-        Size = props.Size or UDim2.fromOffset(60, 50),
-        ZIndex = props.ZIndex,
-        LayoutOrder = props.LayoutOrder,
-
+	return Button(scope, {
+		Size = UDim2.fromOffset(60, 50),
+		
         [Children] = {
-            deriveScope:New 'ImageLabel' {
+            scope:New 'ImageLabel' {
                 name = 'Icon',
 
 				BackgroundTransparency = 1,
@@ -44,8 +40,7 @@ local function AppBarButton(
                 ScaleType = Enum.ScaleType.Fit,
             }
         }
-    }:: AppBarButton
-
+    } :: any) :: AppBarButton
 end
 
 return AppBarButton
