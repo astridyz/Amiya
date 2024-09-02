@@ -16,8 +16,8 @@ type TopAppBar = Types.TopAppBar
 local function TopAppBar(
 	scope: Types.ComponentScope,
 	props: Types.Properties<{
-		Title: string,
-		Subtitle: Fusion.UsedAs<string>
+		Title: string?,
+		Subtitle: Fusion.UsedAs<string>?
 	}>
 ): TopAppBar
 	
@@ -133,11 +133,7 @@ local function TopAppBar(
 						VerticalAlignment = Enum.VerticalAlignment.Center,
 						SortOrder = Enum.SortOrder.LayoutOrder,
 					},
-
-					scope:New "UIPadding" {
-						PaddingRight = UDim.new(0, 7),
-					},
-
+					
                     (props :: {})[Children]
 				}
 			},

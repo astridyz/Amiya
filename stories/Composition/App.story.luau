@@ -16,22 +16,8 @@ local function Story(props)
 				Subtitle = 'Host: Annah_Banna',
 
 				[Children] = {
-					
-					--// Button test
-					scope:New 'ImageLabel' {
-						Size = UDim2.fromScale(0.6, 0.6),
-						Image = Amiya.Icons.CircleX,
-						ImageColor3 = Color3.new(0, 0, 0),
-						BackgroundTransparency = 1,
-						AnchorPoint = Vector2.new(0.5, 0.5),
-						Position = UDim2.fromScale(0.5, 0.5),
-						ScaleType = Enum.ScaleType.Fit,
-
-						[Children] = {
-							scope:New 'UIAspectRatioConstraint' {
-								AspectRatio = 1
-							}
-						}
+					scope:AppBarButton {
+						Icon = Amiya.Icons.CircleX
 					}
 				}
 			},

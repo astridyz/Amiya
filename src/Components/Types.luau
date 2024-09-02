@@ -21,4 +21,6 @@ export type TopAppBar<buttons = {}> = Frame & {
     Buttons: Frame & buttons & {UIListLayout: UIListLayout} 
 }
 
+export type AppBarButton = TextButton & {}
+
 return 0;
