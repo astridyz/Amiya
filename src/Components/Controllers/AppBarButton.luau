@@ -29,7 +29,7 @@ local function AppBarButton(
             Size = UDim2.fromOffset(60, 50),
 
             [Children] = {
-                scope:New('ImageLabel')({
+                scope:New 'ImageLabel' {
                     name = 'Icon',
 
                     BackgroundTransparency = 1,
@@ -40,7 +40,7 @@ local function AppBarButton(
                     Image = props.Icon or Assets.Icons.Info,
                     ImageColor3 = Color3.new(0, 0, 0),
                     ScaleType = Enum.ScaleType.Fit,
-                }),
+                },
             },
         } :: any
     ) :: AppBarButton

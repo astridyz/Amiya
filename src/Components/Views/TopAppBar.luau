@@ -82,7 +82,7 @@ local function TopAppBar(
                             deriveScope:New 'UIListLayout' {
                                 FillDirection = Enum.FillDirection.Vertical,
                                 VerticalAlignment = Enum.VerticalAlignment.Center,
-                            } ,
+                            },
 
                             deriveScope:New 'TextLabel' {
                                 name = 'Title',

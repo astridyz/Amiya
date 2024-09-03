@@ -31,7 +31,7 @@ local function Button(
         AnchorPoint = props.AnchorPoint or Vector2.new(0, 0),
         Position = props.Position or UDim2.fromScale(0, 0),
 
-        [OnEvent('InputEnded')] = function(input)
+        [OnEvent 'InputEnded'] = function(input)
             if table.find({ Enum.UserInputType.MouseButton1, Enum.UserInputType.Touch }, input.UserInputType) then
                 if props.OnClick then
                     props.OnClick()
