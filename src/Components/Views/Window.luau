@@ -39,9 +39,21 @@ local function Window(
                 Name = 'Body',
 
                 BackgroundTransparency = 1,
-                Image = Assets.Components.Background,
                 Size = UDim2.fromScale(1, 1),
+
+                Image = Assets.Components.Background,
                 ImageColor3 = Scheme.Color.Background,
+                ImageTransparency = 0.15,
+            },
+
+            deriveScope:New 'ImageLabel' {
+                Name = 'Texture',
+
+                BackgroundTransparency = 1,
+                Size = UDim2.fromScale(1, 1),
+
+                Image = Assets.Components.BgTexture,
+                ImageTransparency = 0.8,
             },
 
             deriveScope:New 'ImageLabel' {
