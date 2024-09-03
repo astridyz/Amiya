@@ -13,55 +13,55 @@ local Types = require(Components.Types)
 type Window<D = Instance> = Types.Window<D>
 
 local function Window(
-	scope: Types.ComponentScope,
-	props: Types.Properties<{
-		Visible: Fusion.UsedAs<boolean>?,
-		Position: UDim2?,
-		Size: UDim2?
-	}>
+    scope: Types.ComponentScope,
+    props: Types.Properties<{
+        Visible: Fusion.UsedAs<boolean>?,
+        Position: UDim2?,
+        Size: UDim2?,
+    }>
 ): Window
-	
-	local deriveScope = Fusion.deriveScope(scope) 
 
-	return scope:New 'Frame' {
-		Name = 'Window',
-		Visible = props.Visible or true,
-		ZIndex = props.ZIndex or 1,
+    local deriveScope = Fusion.deriveScope(scope)
 
-		AnchorPoint = Vector2.new(0.5, 0.5),
-		Position = props.Position or UDim2.fromScale(0.5, 0.5),
-		Size = props.Size or UDim2.fromOffset(600, 600),
+    return scope:New 'Frame' {
+        Name = 'Window',
+        Visible = props.Visible or true,
+        ZIndex = props.ZIndex or 1,
 
-		BackgroundTransparency = 1,
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Position = props.Position or UDim2.fromScale(0.5, 0.5),
+        Size = props.Size or UDim2.fromOffset(600, 600),
 
-		[Children] = {
-			deriveScope:New 'ImageLabel' {
-				Name = 'Body',
+        BackgroundTransparency = 1,
 
-				BackgroundTransparency = 1,
-				Image = Assets.Components.Background,
-				Size = UDim2.fromScale(1, 1),
-				ImageColor3 = Scheme.Color.Background
-			},
-			
-			deriveScope:New 'ImageLabel' {
-				Name = 'Border',
+        [Children] = {
+            deriveScope:New 'ImageLabel' {
+                Name = 'Body',
 
-				BackgroundTransparency = 1,
-				Image = Assets.Components.BgStroke,
-				Size = UDim2.fromScale(1, 1),
-				ImageColor3 = Scheme.Color.Header
-			},
+                BackgroundTransparency = 1,
+                Image = Assets.Components.Background,
+                Size = UDim2.fromScale(1, 1),
+                ImageColor3 = Scheme.Color.Background,
+            },
 
-			deriveScope:New 'UIAspectRatioConstraint' {
-				AspectRatio = 2/3,
-				AspectType = Enum.AspectType.ScaleWithParentSize,
-				DominantAxis = Enum.DominantAxis.Width,
-			},
-			
-			(props :: {})[Children]
-		}
-	} :: Window
+            deriveScope:New 'ImageLabel' {
+                Name = 'Border',
+
+                BackgroundTransparency = 1,
+                Image = Assets.Components.BgStroke,
+                Size = UDim2.fromScale(1, 1),
+                ImageColor3 = Scheme.Color.Header,
+            },
+
+            deriveScope:New 'UIAspectRatioConstraint' {
+                AspectRatio = 2 / 3,
+                AspectType = Enum.AspectType.ScaleWithParentSize,
+                DominantAxis = Enum.DominantAxis.Width,
+            },
+
+            (props :: {})[Children],
+        },
+    } :: Window
 end
 
 return Window

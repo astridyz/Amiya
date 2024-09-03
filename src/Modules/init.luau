@@ -1,3 +1,3 @@
 return {
-    Assets = require(script.Assets)
+    Assets = require(script.Assets),
 }

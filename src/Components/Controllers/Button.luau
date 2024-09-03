@@ -11,13 +11,13 @@ type Button = Types.Button
 type UsedAs<T> = Fusion.UsedAs<T>
 
 local function Button(
-	scope: Types.ComponentScope,
-	props: Types.Properties<{
+    scope: Types.ComponentScope,
+    props: Types.Properties<{
         Size: UsedAs<UDim2>?,
         LayoutOrder: UsedAs<number>?,
         OnClick: () -> ()?,
         AnchorPoint: Vector2?,
-        Position: UsedAs<UDim2>?
+        Position: UsedAs<UDim2>?,
     }>
 ): Button
 
@@ -29,18 +29,18 @@ local function Button(
         LayoutOrder = props.LayoutOrder,
 
         AnchorPoint = props.AnchorPoint or Vector2.new(0, 0),
-		Position = props.Position or UDim2.fromScale(0, 0),
+        Position = props.Position or UDim2.fromScale(0, 0),
 
-        [OnEvent 'InputEnded'] = function(input)
-			if table.find({Enum.UserInputType.MouseButton1, Enum.UserInputType.Touch}, input.UserInputType) then
-				if props.OnClick then
+        [OnEvent('InputEnded')] = function(input)
+            if table.find({ Enum.UserInputType.MouseButton1, Enum.UserInputType.Touch }, input.UserInputType) then
+                if props.OnClick then
                     props.OnClick()
-				end
-			end
-		end,
+                end
+            end
+        end,
 
-        [Children] = (props :: {})[Children]
-    }:: Button
+        [Children] = (props :: {})[Children],
+    } :: Button
 end
 
 return Button
