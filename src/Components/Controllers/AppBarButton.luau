@@ -29,9 +29,7 @@ local function AppBarButton(
             Size = UDim2.fromOffset(60, 50),
 
             [Children] = {
-                scope:New 'ImageLabel' {
-                    name = 'Icon',
-
+                Icon = scope:New 'ImageLabel' {
                     BackgroundTransparency = 1,
                     Size = UDim2.fromScale(0.8, 0.8),
                     AnchorPoint = Vector2.new(0.5, 0.5),

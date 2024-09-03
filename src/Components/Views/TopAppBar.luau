@@ -33,21 +33,12 @@ local function TopAppBar(
 
         [Children] = {
 
-            deriveScope:New 'Frame' {
-                Name = 'Right',
-
+            Right = deriveScope:New 'Frame' {
                 BackgroundTransparency = 1,
                 Size = UDim2.fromScale(1, 1),
 
                 [Children] = {
-                    deriveScope:New 'UIListLayout' {
-                        FillDirection = Enum.FillDirection.Horizontal,
-                        SortOrder = Enum.SortOrder.LayoutOrder,
-                    },
-
-                    deriveScope:New 'Frame' {
-                        Name = 'IconBase',
-
+                    IconBase = deriveScope:New 'Frame' {
                         BackgroundTransparency = 1,
                         Size = UDim2.fromScale(1, 1),
 
@@ -71,22 +62,13 @@ local function TopAppBar(
                         },
                     },
 
-                    deriveScope:New 'Frame' {
-                        name = 'Text',
-
+                    Text = deriveScope:New 'Frame' {
                         BackgroundTransparency = 1,
                         Size = UDim2.fromScale(0, 1),
                         LayoutOrder = 2,
 
                         [Children] = Child {
-                            deriveScope:New 'UIListLayout' {
-                                FillDirection = Enum.FillDirection.Vertical,
-                                VerticalAlignment = Enum.VerticalAlignment.Center,
-                            },
-
-                            deriveScope:New 'TextLabel' {
-                                name = 'Title',
-
+                            Title = deriveScope:New 'TextLabel' {
                                 BackgroundTransparency = 1,
                                 Font = Enum.Font.GothamBold,
                                 Text = props.Title or 'Info',
@@ -113,14 +95,22 @@ local function TopAppBar(
                                     }
                                     else nil
                             end),
+
+                            deriveScope:New 'UIListLayout' {
+                                FillDirection = Enum.FillDirection.Vertical,
+                                VerticalAlignment = Enum.VerticalAlignment.Center,
+                            },
                         },
+                    },
+
+                    deriveScope:New 'UIListLayout' {
+                        FillDirection = Enum.FillDirection.Horizontal,
+                        SortOrder = Enum.SortOrder.LayoutOrder,
                     },
                 },
             },
 
-            deriveScope:New 'Frame' {
-                Name = 'Buttons',
-
+            Buttons = deriveScope:New 'Frame' {
                 BackgroundTransparency = 1,
                 Size = UDim2.fromScale(1, 1),
 

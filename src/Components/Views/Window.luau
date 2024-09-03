@@ -35,20 +35,14 @@ local function Window(
         BackgroundTransparency = 1,
 
         [Children] = {
-            deriveScope:New 'ImageLabel' {
-                Name = 'Body',
-
+            Border = deriveScope:New 'ImageLabel' {
                 BackgroundTransparency = 1,
+                Image = Assets.Components.BgStroke,
                 Size = UDim2.fromScale(1, 1),
-
-                Image = Assets.Components.Background,
-                ImageColor3 = Scheme.Color.Background,
-                ImageTransparency = 0.15,
+                ImageColor3 = Scheme.Color.Header,
             },
-
-            deriveScope:New 'ImageLabel' {
-                Name = 'Texture',
-
+            
+            Texture = deriveScope:New 'ImageLabel' {
                 BackgroundTransparency = 1,
                 Size = UDim2.fromScale(1, 1),
 
@@ -56,13 +50,13 @@ local function Window(
                 ImageTransparency = 0.8,
             },
 
-            deriveScope:New 'ImageLabel' {
-                Name = 'Border',
-
+            Body = deriveScope:New 'ImageLabel' {
                 BackgroundTransparency = 1,
-                Image = Assets.Components.BgStroke,
                 Size = UDim2.fromScale(1, 1),
-                ImageColor3 = Scheme.Color.Header,
+
+                Image = Assets.Components.Background,
+                ImageColor3 = Scheme.Color.Background,
+                ImageTransparency = 0.15,
             },
 
             deriveScope:New 'UIAspectRatioConstraint' {

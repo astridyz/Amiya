@@ -8,8 +8,11 @@ local Components = Amiya.Components
 
 local function Story(props)
     local scope = Fusion.scoped(Fusion, Components)
+    local visibility = scope:Value(true)
 
     local window = scope:Window {
+        Visible = visibility,
+
         [Children] = {
             scope:TopAppBar {
                 Title = 'Entity #350',
@@ -18,6 +21,10 @@ local function Story(props)
                 [Children] = {
                     scope:AppBarButton {
                         Icon = Amiya.Icons.CircleX,
+
+                        OnClick = function()
+                            visibility:set(false)
+                        end
                     },
                 },
             },

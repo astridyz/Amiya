@@ -11,9 +11,10 @@ export type Properties<derived = {}> = derived & {
     [Children]: Children?,
 }
 
-export type Window<children = Instance> = Frame & children & {
+export type Window<children = {}> = Frame & children & {
     Body: ImageLabel,
     Border: ImageLabel,
+    Texture: ImageLabel,
     UIAspectRatioConstraint: UIAspectRatioConstraint,
 }
 
