@@ -2,7 +2,7 @@
 return {
 	Components = {
 		PortraitBg = "rbxassetid://105099256295896",
-		PortraitStroke = "rbxassetid://120222661203213",
+		PortraitStroke = "rbxassetid://83739691952709",
 		TopAppBar = "rbxassetid://138546426593584",
 	},
 	Icons = {

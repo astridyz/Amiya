@@ -22,7 +22,7 @@ local function Button(
 ): Button
 
     return scope:New 'TextButton' {
-        name = 'Button',
+        Name = 'Button',
         BackgroundTransparency = 1,
         Size = props.Size or UDim2.fromOffset(200, 50),
         ZIndex = props.ZIndex,

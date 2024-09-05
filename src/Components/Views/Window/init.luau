@@ -75,7 +75,7 @@ local function Window(
                         Name = 'Border',
                         BackgroundTransparency = 1,
 
-                        Size = UDim2.fromScale(1.03, 1.03),
+                        Size = UDim2.fromScale(1.02, 1.02),
                         Position = UDim2.fromScale(0.5, 0.5),
                         AnchorPoint = Vector2.new(0.5, 0.5),
 

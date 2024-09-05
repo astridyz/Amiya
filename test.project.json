@@ -3,6 +3,7 @@
     "tree": {
         "$className": "DataModel",
         "ReplicatedStorage": {
+            "$className": "ReplicatedStorage",
             "Packages": {
                 "$path": "Packages",
                 "Amiya": {
@@ -12,6 +13,13 @@
             "Stories": {
                 "$path": "stories"
             }
+        },
+
+        "StarterGui": {
+            "$className": "StarterGui",
+            "Tests": {
+				"$path": "tests"
+			}
         }
     }
 }

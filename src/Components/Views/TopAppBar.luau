@@ -28,7 +28,7 @@ local function TopAppBar(
 
         BackgroundColor3 = Scheme.Color.Header,
         ZIndex = props.ZIndex or 2,
-        Size = UDim2.fromScale(1.035, 0.075),
+        Size = UDim2.new(1.03, 0, 0, 40),
         Position = UDim2.fromScale(0.5, 0),
         AnchorPoint = Vector2.new(0.5, 0.5),
 
@@ -58,7 +58,7 @@ local function TopAppBar(
 
                                 AnchorPoint = Vector2.new(0.5, 0.5),
                                 Position = UDim2.fromScale(0.5, 0.5),
-                                Size = UDim2.fromScale(0.6, 0.6),
+                                Size = UDim2.fromScale(0.5, 0.5),
                             },
                         },
                     },
@@ -72,11 +72,11 @@ local function TopAppBar(
                             Title = deriveScope:New 'TextLabel' {
                                 BackgroundTransparency = 1,
                                 LayoutOrder = 2,
-                                Size = UDim2.fromOffset(0, -17),
+                                Size = UDim2.fromOffset(0, -14),
 
                                 Font = Enum.Font.GothamBold,
                                 Text = props.Title or 'Info',
-                                TextSize = 17,
+                                TextSize = 14,
                                 TextXAlignment = Enum.TextXAlignment.Left,
                             },
 
@@ -87,12 +87,12 @@ local function TopAppBar(
 
                                         BackgroundTransparency = 1,
                                         LayoutOrder = 2,
-                                        Size = UDim2.fromOffset(0, -17),
+                                        Size = UDim2.fromOffset(0, -14),
 
                                         Font = Enum.Font.GothamMedium,
                                         Text = props.Subtitle,
                                         TextColor3 = Color3.new(0.3, 0.3, 0.3),
-                                        TextSize = 17,
+                                        TextSize = 14,
                                         TextXAlignment = Enum.TextXAlignment.Left,
                                     }
                                     else nil

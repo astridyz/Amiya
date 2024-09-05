@@ -11,7 +11,7 @@ local function Story(props)
     local scope = Fusion.scoped(Fusion, Components)
     local visibility = scope:Value(true)
 
-    local window = scope:Portrait {
+    local window = scope:Window {
         Visible = visibility,
         Size = UDim2.fromOffset(400, 1100),
         AspectRatio = 1.5,
@@ -20,6 +20,12 @@ local function Story(props)
             scope:TopAppBar {
                 Title = 'Entity #365',
                 Subtitle = 'Hoster: Annah_Banna',
+
+                [Children] = {
+                    scope:AppBarButton {
+                        Icon = Amiya.Icons.CircleX,
+                    },
+                },
             },
         },
     }
