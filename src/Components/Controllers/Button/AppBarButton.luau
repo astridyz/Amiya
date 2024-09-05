@@ -26,7 +26,9 @@ local function AppBarButton(
     return Button(
         scope,
         {
-            Size = UDim2.fromOffset(60, 50),
+            Size = props.Size or UDim2.fromOffset(60, 50),
+            LayoutOrder = props.LayoutOrder,
+            OnClick = props.OnClick,
 
             [Children] = {
                 Icon = scope:New 'ImageLabel' {
@@ -39,8 +41,10 @@ local function AppBarButton(
                     ImageColor3 = Color3.new(0, 0, 0),
                     ScaleType = Enum.ScaleType.Fit,
                 },
+
+                (props :: any)[Children]
             },
-        } :: any
+        }
     ) :: AppBarButton
 end
 

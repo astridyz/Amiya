@@ -28,8 +28,9 @@ local function TopAppBar(
 
         BackgroundColor3 = Scheme.Color.Header,
         ZIndex = props.ZIndex or 2,
-        Size = UDim2.new(1.01, 0, 0, 50),
-        Position = UDim2.fromScale(-0.005, -0.005),
+        Size = UDim2.fromScale(1.035, 0.075),
+        Position = UDim2.fromScale(0.5, 0),
+        AnchorPoint = Vector2.new(0.5, 0.5),
 
         [Children] = {
 
@@ -126,8 +127,6 @@ local function TopAppBar(
                     (props :: {})[Children],
                 },
             },
-
-            -- deriveScope:New 'UICorner' {},
         },
     } :: TopAppBar
 end

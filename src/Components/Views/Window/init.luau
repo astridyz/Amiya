@@ -8,6 +8,7 @@ local Scheme = require(Modules.Schemes.Default)
 
 local Fusion = require(Amiya.Parent.Fusion)
 local Children = Fusion.Children
+local Child = Fusion.Child
 local peek = Fusion.peek
 
 local Types = require(Components.Types)
@@ -21,6 +22,8 @@ local function Window(
         Position: UDim2?,
         Size: UDim2?,
         AspectRatio: UsedAs<number>?,
+        Background: string?,
+        Border: string?,
     }>
 ): Window
 
@@ -35,30 +38,61 @@ local function Window(
         Position = props.Position or UDim2.fromScale(0.5, 0.5),
         Size = props.Size or UDim2.fromOffset(600, 600),
 
-        BackgroundColor3 = Scheme.Color.Background,
-        BackgroundTransparency = 0.15,
+        BackgroundTransparency = 1,
 
-        [Children] = {
-            BorderBase = deriveScope:New 'Frame' {
-                BackgroundTransparency = 1,
+        [Children] = Child {
+            Fusion.Computed(deriveScope, function(use)
+                return if props.Background
+                    then deriveScope:New 'ImageLabel' {
+                        Name = 'Background',
+                        Image = props.Background,
+                        Size = UDim2.fromScale(1, 1),
 
-                Size = UDim2.fromScale(1.01, 1.01),
-                Position = UDim2.fromScale(0.5, 0.5),
-                AnchorPoint = Vector2.new(0.5, 0.5),
+                        ImageColor3 = Scheme.Color.Background,
+                        ImageTransparency = 0.15,
+                        BackgroundTransparency = 1,
+                    }
+                    else deriveScope:New 'Frame' {
+                        Name = 'Background',
+                        Size = UDim2.fromScale(1, 1),
+                        BackgroundColor3 = Scheme.Color.Background,
+                        BackgroundTransparency = 0.15,
+                    }
+            end),
 
-                [Children] = {
-                    deriveScope:New 'UIStroke' {
-                        Color = Scheme.Color.Header,
-                        Thickness = 1.5,
-                    },
-                },
-            },
+            Fusion.Computed(deriveScope, function()
+                return if props.Border
+                    then deriveScope:New 'ImageLabel' {
+                        Name = 'Border',
+                        BackgroundTransparency = 1,
+                        Image = props.Border,
+                        Size = UDim2.fromScale(1.08, 1.04),
+                        Position = UDim2.fromScale(0.5, 0.5),
+                        AnchorPoint = Vector2.new(0.5, 0.5),
+                        ImageColor3 = Scheme.Color.Header,
+                    }
+                    else deriveScope:New 'Frame' {
+                        Name = 'Border',
+                        BackgroundTransparency = 1,
+
+                        Size = UDim2.fromScale(1.03, 1.03),
+                        Position = UDim2.fromScale(0.5, 0.5),
+                        AnchorPoint = Vector2.new(0.5, 0.5),
+
+                        [Children] = {
+                            deriveScope:New 'UIStroke' {
+                                Color = Scheme.Color.Header,
+                                Thickness = 1.5,
+                            },
+                        },
+                    }
+            end),
 
             Texture = deriveScope:New 'ImageLabel' {
                 BackgroundTransparency = 1,
                 Size = UDim2.fromScale(1, 1),
 
-                Image = Assets.Components.BatthernTexture,
+                Image = Assets.Textures.Batthern,
                 ImageTransparency = 0.8,
                 ScaleType = Enum.ScaleType.Tile,
                 TileSize = UDim2.fromScale(0.4, 0.4),

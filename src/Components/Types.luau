@@ -12,10 +12,10 @@ export type Properties<derived = {}> = derived & {
 }
 
 export type Window<children = {}> = Frame & children & {
-    Body: ImageLabel,
-    Border: ImageLabel,
+    Background: ImageLabel | Frame,
+    Border: Frame & {UIStroke: UIStroke},
     Texture: ImageLabel,
-    UIAspectRatioConstraint: UIAspectRatioConstraint,
+    UIAspectRatioConstraint: UIAspectRatioConstraint?,
 }
 
 export type TopAppBar<buttons = {}> = Frame & {

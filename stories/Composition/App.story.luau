@@ -11,7 +11,7 @@ local function Story(props)
     local scope = Fusion.scoped(Fusion, Components)
     local visibility = scope:Value(true)
 
-    local window = scope:Window {
+    local window = scope:Portrait {
         Visible = visibility,
         Size = UDim2.fromOffset(400, 1100),
         AspectRatio = 1.5,
