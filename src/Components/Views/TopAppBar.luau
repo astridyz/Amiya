@@ -27,9 +27,9 @@ local function TopAppBar(
         Name = 'TopAppBar',
 
         BackgroundColor3 = Scheme.Color.Header,
-        ZIndex = props.ZIndex or 1,
-        Size = UDim2.new(1.2, 0, 0.08, 0),
-        Position = UDim2.fromScale(-0.1, 0),
+        ZIndex = props.ZIndex or 2,
+        Size = UDim2.new(1.01, 0, 0, 50),
+        Position = UDim2.fromScale(-0.005, -0.005),
 
         [Children] = {
 
@@ -48,7 +48,7 @@ local function TopAppBar(
                             },
 
                             deriveScope:New 'ImageLabel' {
-                                name = 'Icon',
+                                Name = 'Icon',
 
                                 BackgroundTransparency = 1,
                                 Image = Assets.Icons.Info,
@@ -70,27 +70,28 @@ local function TopAppBar(
                         [Children] = Child {
                             Title = deriveScope:New 'TextLabel' {
                                 BackgroundTransparency = 1,
+                                LayoutOrder = 2,
+                                Size = UDim2.fromOffset(0, -17),
+
                                 Font = Enum.Font.GothamBold,
                                 Text = props.Title or 'Info',
-                                TextColor3 = Color3.new(0, 0, 0),
-                                TextSize = 25,
+                                TextSize = 17,
                                 TextXAlignment = Enum.TextXAlignment.Left,
-
-                                Size = UDim2.fromScale(0, 0.5),
                             },
 
                             Fusion.Computed(deriveScope, function(use)
                                 return if props.Subtitle and use(props.Subtitle)
                                     then deriveScope:New 'TextLabel' {
-                                        name = 'Subtitle',
+                                        Name = 'Subtitle',
 
                                         BackgroundTransparency = 1,
-                                        Size = UDim2.fromScale(0, 0.3),
                                         LayoutOrder = 2,
+                                        Size = UDim2.fromOffset(0, -17),
+
                                         Font = Enum.Font.GothamMedium,
                                         Text = props.Subtitle,
-                                        TextColor3 = Color3.new(0.239216, 0.239216, 0.239216),
-                                        TextSize = 20,
+                                        TextColor3 = Color3.new(0.3, 0.3, 0.3),
+                                        TextSize = 17,
                                         TextXAlignment = Enum.TextXAlignment.Left,
                                     }
                                     else nil
@@ -126,7 +127,7 @@ local function TopAppBar(
                 },
             },
 
-            deriveScope:New 'UICorner' {},
+            -- deriveScope:New 'UICorner' {},
         },
     } :: TopAppBar
 end

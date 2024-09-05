@@ -1,5 +1,5 @@
 --!strict
-local Components = script.Parent.Parent
+local Components = script.Parent.Parent.Parent
 local Amiya = Components.Parent
 local Modules = Amiya.Modules
 
@@ -41,7 +41,7 @@ local function Window(
                 Size = UDim2.fromScale(1, 1),
                 ImageColor3 = Scheme.Color.Header,
             },
-            
+
             Texture = deriveScope:New 'ImageLabel' {
                 BackgroundTransparency = 1,
                 Size = UDim2.fromScale(1, 1),

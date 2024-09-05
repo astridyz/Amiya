@@ -1,5 +1,5 @@
 --!strict
-local Components = script.Parent.Parent
+local Components = script.Parent.Parent.Parent
 local Amiya = Components.Parent
 local Modules = Amiya.Modules
 
@@ -8,7 +8,7 @@ local Assets = require(Modules.Assets)
 local Fusion = require(Amiya.Parent.Fusion)
 local Children = Fusion.Children
 
-local Button = require(script.Parent.Button)
+local Button = require(script.Parent)
 
 local Types = require(Components.Types)
 type AppBarButton = Types.AppBarButton

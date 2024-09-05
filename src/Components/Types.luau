@@ -8,7 +8,7 @@ export type ComponentScope = Fusion.Scope<{
 
 export type Properties<derived = {}> = derived & {
     ZIndex: number?,
-    [Children]: Children?,
+    [Children]: {[any]: Instance},
 }
 
 export type Window<children = {}> = Frame & children & {

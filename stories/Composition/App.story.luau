@@ -1,3 +1,4 @@
+--!strict
 local Packages = game.ReplicatedStorage.Packages
 
 local Fusion = require(Packages.Fusion)
@@ -12,21 +13,13 @@ local function Story(props)
 
     local window = scope:Window {
         Visible = visibility,
+        Size = UDim2.fromOffset(400, 1100),
+        AspectRatio = 1.5,
 
         [Children] = {
             scope:TopAppBar {
-                Title = 'Entity #350',
-                Subtitle = 'Host: Annah_Banna',
-
-                [Children] = {
-                    scope:AppBarButton {
-                        Icon = Amiya.Icons.CircleX,
-
-                        OnClick = function()
-                            visibility:set(false)
-                        end
-                    },
-                },
+                Title = 'Entity #365',
+                Subtitle = 'Hoster: Annah_Banna',
             },
         },
     }

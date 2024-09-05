@@ -2,6 +2,7 @@
 return {
 	Components = {
 		Background = "rbxassetid://95360779940332",
+		BatthernTexture = "rbxassetid://84097280027088",
 		BgStroke = "rbxassetid://136335962812592",
 		BgTexture = "rbxassetid://104670191051344",
 		TopAppBar = "rbxassetid://138546426593584",
