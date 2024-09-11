@@ -28,7 +28,7 @@ local function TopAppBar(
 
         BackgroundColor3 = Scheme.Color.Header,
         ZIndex = props.ZIndex or 2,
-        Size = UDim2.new(1.03, 0, 0, 40),
+        Size = UDim2.new(1.025, 0, 0, 40),
         Position = UDim2.fromScale(0.5, 0),
         AnchorPoint = Vector2.new(0.5, 0.5),
 
@@ -122,6 +122,10 @@ local function TopAppBar(
                         HorizontalAlignment = Enum.HorizontalAlignment.Right,
                         VerticalAlignment = Enum.VerticalAlignment.Center,
                         SortOrder = Enum.SortOrder.LayoutOrder,
+                    },
+
+                    deriveScope:New 'UIPadding' {
+                        PaddingRight = UDim.new(0.01)
                     },
 
                     (props :: {})[Children],

@@ -11,9 +11,9 @@ local function Story(props)
     local scope = Fusion.scoped(Fusion, Components)
     local visibility = scope:Value(true)
 
-    local window = scope:Window {
+    local window = scope:Portrait {
         Visible = visibility,
-        Size = UDim2.fromOffset(400, 1100),
+        Size = UDim2.fromOffset(250, 250),
         AspectRatio = 1.5,
 
         [Children] = {
@@ -24,6 +24,29 @@ local function Story(props)
                 [Children] = {
                     scope:AppBarButton {
                         Icon = Amiya.Icons.CircleX,
+                    },
+                },
+            } :: any,
+
+            --// Content test
+            scope:New 'Frame' {
+                Size = UDim2.new(1, 0, 1, -25),
+                Position = UDim2.fromOffset(0, 25),
+                BackgroundTransparency = 1,
+
+                [Children] = {
+                    scope:Button {} :: any,
+                    scope:TextButton {
+                        Text = 'Download',
+                    } :: any,
+
+                    scope:New 'UIListLayout' {
+                        Padding = UDim.new(0.05),
+                        HorizontalAlignment = Enum.HorizontalAlignment.Center,
+                    },
+
+                    scope:New 'UIPadding' {
+                        PaddingTop = UDim.new(0.05),
                     },
                 },
             },

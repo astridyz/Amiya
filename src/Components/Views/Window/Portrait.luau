@@ -17,22 +17,19 @@ local function Portrait(
     scope: Types.ComponentScope,
     props: Types.Properties<{
         Size: UDim2?,
-        Visible: Fusion.UsedAs<boolean>?
+        Visible: Fusion.UsedAs<boolean>?,
     }>
 ): Window
 
-    return Window(
-        scope,
-        {
-            AspectRatio = 2/3,
-            Background = Assets.Components.PortraitBg,
-            Border = Assets.Components.PortraitStroke,
-            Size = props.Size or UDim2.fromOffset(300, 300),
-            Visible = props.Visible,
+    return Window(scope, {
+        AspectRatio = 2 / 3,
+        Background = Assets.Components.PortraitBg,
+        Border = Assets.Components.PortraitStroke,
+        Size = props.Size or UDim2.fromOffset(250, 250),
+        Visible = props.Visible,
 
-            [Children] = (props :: any)[Children]
-        }
-    ) :: Window
+        [Children] = (props :: any)[Children],
+    }) :: Window
 end
 
 return Portrait

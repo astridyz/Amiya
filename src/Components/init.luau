@@ -9,4 +9,5 @@ return {
     
     Button = require(Controllers.Button),
     AppBarButton = require(Controllers.Button.AppBarButton),
+    TextButton = require(Controllers.Button.TextButton)
 }

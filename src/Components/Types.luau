@@ -38,8 +38,7 @@ export type TopAppBar<buttons = {}> = Frame & {
 
 export type Button<derived = {}> = TextButton & derived
 
-export type AppBarButton = Button<{
-    Icon: ImageLabel,
-}>
+export type AppBarButton = Button<{ Icon: ImageLabel }>
+export type AmiyaTextButton = Button<{ Text: TextLabel }>
 
 return 0

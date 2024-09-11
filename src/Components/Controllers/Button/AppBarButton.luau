@@ -23,29 +23,26 @@ local function AppBarButton(
     }>
 ): AppBarButton
 
-    return Button(
-        scope,
-        {
-            Size = props.Size or UDim2.fromOffset(30, 30),
-            LayoutOrder = props.LayoutOrder,
-            OnClick = props.OnClick,
-    
-            [Children] = {
-                Icon = scope:New 'ImageLabel' {
-                    BackgroundTransparency = 1,
-                    Size = UDim2.fromScale(0.7, 0.7),
-                    AnchorPoint = Vector2.new(0.5, 0.5),
-                    Position = UDim2.fromScale(0.5, 0.5),
-    
-                    Image = props.Icon or Assets.Icons.Info,
-                    ImageColor3 = Color3.new(0, 0, 0),
-                    ScaleType = Enum.ScaleType.Fit,
-                },
-    
-                (props :: any)[Children],
+    return Button(scope, {
+        Size = props.Size or UDim2.fromOffset(30, 30),
+        LayoutOrder = props.LayoutOrder,
+        OnClick = props.OnClick,
+
+        [Children] = {
+            Icon = scope:New 'ImageLabel' {
+                BackgroundTransparency = 1,
+                Size = UDim2.fromScale(0.7, 0.7),
+                AnchorPoint = Vector2.new(0.5, 0.5),
+                Position = UDim2.fromScale(0.5, 0.5),
+
+                Image = props.Icon or Assets.Icons.Info,
+                ImageColor3 = Color3.new(0, 0, 0),
+                ScaleType = Enum.ScaleType.Fit,
             },
-        }
-    ) :: AppBarButton
+
+            (props :: any)[Children],
+        },
+    }) :: AppBarButton
 end
 
 return AppBarButton
