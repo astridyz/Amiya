@@ -1,5 +1,5 @@
 --!strict
-local Story = require(script.Parent)
+local Story = require(script.Parent.Parent)
 local Packages = game.ReplicatedStorage.Packages
 
 local Amiya = require(Packages.Amiya)

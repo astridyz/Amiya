@@ -1,4 +1,3 @@
---!strict
 local Packages = game.ReplicatedStorage.Packages
 
 local Fusion = require(Packages.Fusion)
@@ -26,7 +25,7 @@ local function Story(props)
                         Icon = Amiya.Icons.CircleX,
                     },
                 },
-            } :: any,
+            },
 
             --// Content test
             scope:New 'Frame' {
@@ -35,10 +34,25 @@ local function Story(props)
                 BackgroundTransparency = 1,
 
                 [Children] = {
-                    scope:Button {} :: any,
+                    scope:Button {},
                     scope:TextButton {
                         Text = 'Download',
-                    } :: any,
+                    },
+
+                    scope:New 'Frame' {
+                        Size = UDim2.fromScale(0.8, 0.4),
+                        BackgroundTransparency = 1,
+                    
+                        [Children] = {
+                            scope:Checkbox {},
+                            scope:Checkbox {},
+                            scope:Checkbox {},
+
+                            scope:New 'UIListLayout' {
+                                Padding = UDim.new(0.05)
+                            }
+                        }
+                    },
 
                     scope:New 'UIListLayout' {
                         Padding = UDim.new(0.05),

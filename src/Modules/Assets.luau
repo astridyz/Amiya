@@ -6,6 +6,7 @@ return {
 		TopAppBar = "rbxassetid://138546426593584",
 	},
 	Icons = {
+		Check = "rbxassetid://113566130065204",
 		CircleX = "rbxassetid://75625448349347",
 		Info = "rbxassetid://135909314509863",
 	},

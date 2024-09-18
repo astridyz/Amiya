@@ -63,4 +63,9 @@ export type IconButtonProps = {
 
 export type AppBarButton = IconButton
 
+export type Checkbox = Button<{
+    CheckMark: ImageLabel,
+    UIAspectRatioConstraint: UIAspectRatioConstraint
+}>
+
 return 0
