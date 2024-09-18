@@ -13,11 +13,8 @@ type UsedAs<T> = Fusion.UsedAs<T>
 
 local function TextButton(
     scope: Types.ComponentScope,
-    props: Types.Properties<{
+    props: Types.TextButtonProps & Types.Properties<{
         Text: UsedAs<string>?,
-        Size: UsedAs<UDim2>?,
-        LayoutOrder: UsedAs<number>?,
-        OnClick: () -> ()?,
     }>
 ): TextButton
 

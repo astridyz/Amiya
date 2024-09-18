@@ -17,10 +17,8 @@ type UsedAs<T> = Fusion.UsedAs<T>
 
 local function Window(
     scope: Types.ComponentScope,
-    props: Types.Properties<{
-        Visible: UsedAs<boolean>?,
+    props: Types.WindowProps & Types.Properties<{
         Position: UDim2?,
-        Size: UDim2?,
         AspectRatio: UsedAs<number>?,
         Background: string?,
         Border: string?,

@@ -1,6 +1,7 @@
 --!strict
 local Fusion = require(game.ReplicatedStorage.Packages.Fusion)
 type Children = typeof(Fusion.Children)
+type UsedAs<T> = Fusion.UsedAs<T>
 
 export type ComponentScope = Fusion.Scope<{
     New: typeof(Fusion.New),
@@ -16,6 +17,11 @@ export type Window<children = {}> = Frame & children & {
     Border: Frame & {UIStroke: UIStroke},
     Texture: ImageLabel,
     UIAspectRatioConstraint: UIAspectRatioConstraint?,
+}
+
+export type WindowProps = {
+    Visible: UsedAs<boolean>?,
+    Size: UDim2?
 }
 
 export type TopAppBar<buttons = {}> = Frame & {
@@ -38,7 +44,23 @@ export type TopAppBar<buttons = {}> = Frame & {
 
 export type Button<derived = {}> = TextButton & derived
 
-export type AppBarButton = Button<{ Icon: ImageLabel }>
-export type AmiyaTextButton = Button<{ Text: TextLabel }>
+export type AmiyaTextButton<derived = {}> = derived & Button<{ Text: TextLabel }>
+
+export type TextButtonProps = {
+    Size: UsedAs<UDim2>?,
+    LayoutOrder: UsedAs<number>?,
+    OnClick: () -> ()?,
+}
+
+export type IconButton<derived = {}> = derived & Button<{ Icon: ImageLabel }>
+
+export type IconButtonProps = {
+    Icon: string?,
+    Size: Fusion.UsedAs<UDim2>?,
+    LayoutOrder: Fusion.UsedAs<number>?,
+    OnClick: () -> ()?,
+}
+
+export type AppBarButton = IconButton
 
 return 0

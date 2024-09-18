@@ -15,10 +15,7 @@ type UsedAs<T> = Fusion.UsedAs<T>
 
 local function Button(
     scope: Types.ComponentScope,
-    props: Types.Properties<{
-        Size: UsedAs<UDim2>?,
-        LayoutOrder: UsedAs<number>?,
-        OnClick: () -> ()?,
+    props: Types.TextButtonProps & Types.Properties<{
         AnchorPoint: Vector2?,
         Position: UsedAs<UDim2>?,
         BackgroundTransparency: UsedAs<number>?,

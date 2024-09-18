@@ -15,10 +15,7 @@ type Window = Types.Window
 
 local function Portrait(
     scope: Types.ComponentScope,
-    props: Types.Properties<{
-        Size: UDim2?,
-        Visible: Fusion.UsedAs<boolean>?,
-    }>
+    props: Types.WindowProps & Types.Properties
 ): Window
 
     return Window(scope, {
