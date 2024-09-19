@@ -47,7 +47,7 @@ local function IconButton(
 
             (props :: any)[Children],
         },
-    }) :: IconButton
+    })
 end
 
 return IconButton

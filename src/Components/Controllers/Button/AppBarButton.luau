@@ -17,7 +17,7 @@ local function AppBarButton(
         OnClick = props.OnClick,
         Icon = props.Icon,
         BackgroundTransparency = 1,
-    }) :: AppBarButton
+    })
 end
 
 return AppBarButton

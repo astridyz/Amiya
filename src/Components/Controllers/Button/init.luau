@@ -19,7 +19,8 @@ local function Button(
         AnchorPoint: Vector2?,
         Position: UsedAs<UDim2>?,
         BackgroundTransparency: UsedAs<number>?,
-        BackgroundColor3: UsedAs<Color3>?
+        BackgroundColor3: UsedAs<Color3>?,
+        CornerRadius: UDim?
     }>
 ): Button
 
@@ -30,6 +31,7 @@ local function Button(
         Name = 'Button',
         BackgroundTransparency = props.BackgroundTransparency or 0,
         BackgroundColor3 = props.BackgroundColor3 or Scheme.Color.Header,
+        
         Size = props.Size or UDim2.fromOffset(150, 35),
         ZIndex = props.ZIndex,
         LayoutOrder = props.LayoutOrder,
@@ -45,13 +47,17 @@ local function Button(
                 BackgroundColor3 = Color3.new(),
 
                 [Children] = {
-                    deriveScope:New 'UICorner' {},
-
-                    (props :: any)[Children],
+                    deriveScope:New 'UICorner' {
+                        CornerRadius = props.CornerRadius
+                    },
                 },
             },
 
-            deriveScope:New 'UICorner' {},
+            deriveScope:New 'UICorner' {
+                CornerRadius = props.CornerRadius
+            },
+
+            (props :: any)[Children]
         },
 
         [OnEvent 'InputEnded'] = function(input)

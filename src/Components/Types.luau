@@ -68,4 +68,11 @@ export type Checkbox = Button<{
     UIAspectRatioConstraint: UIAspectRatioConstraint
 }>
 
+export type Switch = Button<{}>
+
+export type TogglingProps = {
+    Toggled: Fusion.Value<boolean>?,
+    OnClick: (toggled: Fusion.StateObject<boolean>) -> ()?
+}
+
 return 0

@@ -10,6 +10,7 @@ local Fusion = require(Amiya.Parent.Fusion)
 local Children = Fusion.Children
 local Child = Fusion.Child
 local peek = Fusion.peek
+local Computed = Fusion.Computed
 
 local Types = require(Components.Types)
 type Window<D = Instance> = Types.Window<D>
@@ -39,7 +40,7 @@ local function Window(
         BackgroundTransparency = 1,
 
         [Children] = Child {
-            Fusion.Computed(deriveScope, function(use)
+            Computed(deriveScope, function(use)
                 return if props.Background
                     then deriveScope:New 'ImageLabel' {
                         Name = 'Background',
@@ -58,7 +59,7 @@ local function Window(
                     }
             end),
 
-            Fusion.Computed(deriveScope, function()
+            Computed(deriveScope, function()
                 return if props.Border
                     then deriveScope:New 'ImageLabel' {
                         Name = 'Border',
@@ -96,7 +97,7 @@ local function Window(
                 TileSize = UDim2.fromScale(0.4, 0.4),
             },
 
-            Fusion.Computed(scope, function(use)
+            Computed(scope, function(use)
                 return if props.AspectRatio and use(props.AspectRatio) >= 0
                     then deriveScope:New 'UIAspectRatioConstraint' {
                         AspectRatio = peek(props.AspectRatio) or 3 / 2,

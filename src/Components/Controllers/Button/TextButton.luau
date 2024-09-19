@@ -37,7 +37,7 @@ local function TextButton(
 
             (props :: any)[Children],
         },
-    }) :: TextButton
+    })
 end
 
 return TextButton

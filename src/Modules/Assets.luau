@@ -7,6 +7,7 @@ return {
 	},
 	Icons = {
 		Check = "rbxassetid://113566130065204",
+		Circle = "rbxassetid://83880723682280",
 		CircleX = "rbxassetid://75625448349347",
 		Info = "rbxassetid://135909314509863",
 	},

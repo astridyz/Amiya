@@ -12,5 +12,6 @@ return {
     TextButton = require(Controllers.Button.TextButton),
     IconButton = require(Controllers.Button.IconButton),
 
-    Checkbox = require(Controllers.Checkbox)
+    Checkbox = require(Controllers.Checkbox),
+    Switch = require(Controllers.Switch)
 }

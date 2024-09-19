@@ -46,7 +46,9 @@ local function Story(props)
                         [Children] = {
                             scope:Checkbox {},
                             scope:Checkbox {},
-                            scope:Checkbox {},
+
+                            scope:Switch {},
+                            scope:Switch {},
 
                             scope:New 'UIListLayout' {
                                 Padding = UDim.new(0.05)

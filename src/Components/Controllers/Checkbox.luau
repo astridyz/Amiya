@@ -9,6 +9,7 @@ local Scheme = require(Modules.Schemes.Default)
 local Fusion = require(Amiya.Parent.Fusion)
 local Children = Fusion.Children
 local peek = Fusion.peek
+local Computed = Fusion.Computed
 
 local Button = require(script.Parent.Button)
 
@@ -18,10 +19,7 @@ type Value<V> = Fusion.Value<V>
 
 local function Checkbox(
     scope: Types.ComponentScope,
-    props: Types.Properties<{
-        Toggled: Value<boolean>?,
-        OnClick: (Value<boolean>) -> ()?
-    }>
+    props: Types.TogglingProps & Types.Properties
 ): Checkbox
 
     props.Toggled = props.Toggled or Fusion.Value(scope, false)
@@ -29,8 +27,9 @@ local function Checkbox(
 
     return Button(scope, {
         Size = UDim2.fromOffset(30, 30),
+        ZIndex = props.ZIndex or 1,
 
-        BackgroundColor3 = Fusion.Computed(scope, function(use)
+        BackgroundColor3 = Computed(scope, function(use)
             return use(toggled) and Scheme.Color.Header or Scheme.Color.DarkHeader
         end),
 
@@ -43,7 +42,6 @@ local function Checkbox(
                 AnchorPoint = Vector2.new(0.5, 0.5),
 				Position = UDim2.fromScale(0.5, 0.5),
 				Size = UDim2.fromScale(0.7, 0.7),
-                
                 ImageTransparency = Fusion.Computed(scope, function(use)
                     return use(toggled) and 0 or 1
                 end)
@@ -61,7 +59,7 @@ local function Checkbox(
                 toggled:set(not peek(toggled))
             end
         end
-    }) :: Checkbox
+    })
 end
 
 return Checkbox
