@@ -9,8 +9,6 @@ local Scheme = require(Modules.Schemes.Default)
 local Fusion = require(Amiya.Parent.Fusion)
 local Children = Fusion.Children
 local Child = Fusion.Child
-local peek = Fusion.peek
-local Computed = Fusion.Computed
 
 local Types = require(Components.Types)
 type Window<D = Instance> = Types.Window<D>
@@ -25,7 +23,6 @@ local function Window(
         Border: string?,
     }>
 ): Window
-
     local deriveScope = Fusion.deriveScope(scope)
 
     return scope:New 'Frame' {
@@ -40,52 +37,46 @@ local function Window(
         BackgroundTransparency = 1,
 
         [Children] = Child {
-            Computed(deriveScope, function(use)
-                return if props.Background
-                    then deriveScope:New 'ImageLabel' {
-                        Name = 'Background',
-                        Image = props.Background,
-                        Size = UDim2.fromScale(1, 1),
+            Background = if props.Background
+                then deriveScope:New 'ImageLabel' {
+                    Image = props.Background,
+                    Size = UDim2.fromScale(1, 1),
+                    ZIndex = 0,
 
-                        ImageColor3 = Scheme.Color.Background,
-                        ImageTransparency = 0.15,
-                        BackgroundTransparency = 1,
-                    }
-                    else deriveScope:New 'Frame' {
-                        Name = 'Background',
-                        Size = UDim2.fromScale(1, 1),
-                        BackgroundColor3 = Scheme.Color.Background,
-                        BackgroundTransparency = 0.15,
-                    }
-            end),
+                    ImageColor3 = Scheme.Color.Background,
+                    ImageTransparency = 0.15,
+                    BackgroundTransparency = 1,
+                }
+                else deriveScope:New 'Frame' {
+                    Size = UDim2.fromScale(1, 1),
+                    ZIndex = 0,
+                    BackgroundColor3 = Scheme.Color.Background,
+                    BackgroundTransparency = 0.15,
+                },
 
-            Computed(deriveScope, function()
-                return if props.Border
-                    then deriveScope:New 'ImageLabel' {
-                        Name = 'Border',
-                        BackgroundTransparency = 1,
-                        Image = props.Border,
-                        Size = UDim2.fromScale(1.08, 1.04),
-                        Position = UDim2.fromScale(0.5, 0.5),
-                        AnchorPoint = Vector2.new(0.5, 0.5),
-                        ImageColor3 = Scheme.Color.Header,
-                    }
-                    else deriveScope:New 'Frame' {
-                        Name = 'Border',
-                        BackgroundTransparency = 1,
+            Border = if props.Border
+                then deriveScope:New 'ImageLabel' {
+                    BackgroundTransparency = 1,
+                    Image = props.Border,
+                    Size = UDim2.fromScale(1.08, 1.04),
+                    Position = UDim2.fromScale(0.5, 0.5),
+                    AnchorPoint = Vector2.new(0.5, 0.5),
+                    ImageColor3 = Scheme.Color.Header,
+                }
+                else deriveScope:New 'Frame' {
+                    BackgroundTransparency = 1,
 
-                        Size = UDim2.fromScale(1.02, 1.02),
-                        Position = UDim2.fromScale(0.5, 0.5),
-                        AnchorPoint = Vector2.new(0.5, 0.5),
+                    Size = UDim2.fromScale(1.02, 1.02),
+                    Position = UDim2.fromScale(0.5, 0.5),
+                    AnchorPoint = Vector2.new(0.5, 0.5),
 
-                        [Children] = {
-                            deriveScope:New 'UIStroke' {
-                                Color = Scheme.Color.Header,
-                                Thickness = 1.5,
-                            },
+                    [Children] = Child {
+                        deriveScope:New 'UIStroke' {
+                            Color = Scheme.Color.Header,
+                            Thickness = 1.5,
                         },
-                    }
-            end),
+                    },
+                },
 
             Texture = deriveScope:New 'ImageLabel' {
                 BackgroundTransparency = 1,
@@ -97,15 +88,13 @@ local function Window(
                 TileSize = UDim2.fromScale(0.4, 0.4),
             },
 
-            Computed(scope, function(use)
-                return if props.AspectRatio and use(props.AspectRatio) >= 0
-                    then deriveScope:New 'UIAspectRatioConstraint' {
-                        AspectRatio = peek(props.AspectRatio) or 3 / 2,
+            (if props.AspectRatio >= 0
+                then deriveScope:New 'UIAspectRatioConstraint' {
+                    AspectRatio = props.AspectRatio or 3 / 2,
                         AspectType = Enum.AspectType.ScaleWithParentSize,
                         DominantAxis = Enum.DominantAxis.Width,
                     }
-                    else nil
-            end),
+                else nil) :: any,
 
             (props :: any)[Children],
         },

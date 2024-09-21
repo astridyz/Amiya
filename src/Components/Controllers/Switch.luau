@@ -40,11 +40,9 @@ local function Switch(
                 Position = Tween(
                     scope,
                     Computed(scope, function(use)
-                        if use(toggled) then
-                            return UDim2.new(0.6, 0, 0, 3)
-                        else
-                            return UDim2.new(0, 4, 0, 3)
-                        end
+                        return if use(toggled)
+                            then UDim2.new(0.6, 0, 0, 3)
+                            else UDim2.new(0, 4, 0, 3)
                     end),
                     TweenInfo.new(0.15, Enum.EasingStyle.Quint)
                 ),
