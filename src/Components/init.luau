@@ -8,9 +8,9 @@ return {
     TopAppBar = require(Views.TopAppBar),
     
     Button = require(Controllers.Button),
-    AppBarButton = require(Controllers.Button.AppBarButton),
-    TextButton = require(Controllers.Button.TextButton),
-    IconButton = require(Controllers.Button.IconButton),
+    AppBarButton = require(Controllers.Button.AppBar),
+    TextButton = require(Controllers.Button.Text),
+    IconButton = require(Controllers.Button.Icon),
 
     Checkbox = require(Controllers.Checkbox),
     Switch = require(Controllers.Switch)

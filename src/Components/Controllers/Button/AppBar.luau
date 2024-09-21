@@ -1,7 +1,7 @@
 --!strict
 local Components = script.Parent.Parent.Parent
 
-local IconButton = require(script.Parent.IconButton)
+local IconButton = require(script.Parent.Icon)
 
 local Types = require(Components.Types)
 type AppBarButton = Types.AppBarButton
