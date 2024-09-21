@@ -22,6 +22,7 @@ local function TextButton(
         Size = props.Size,
         LayoutOrder = props.LayoutOrder,
         OnClick = props.OnClick,
+        Background = props.Background,
 
         [Children] = {
             Text = scope:New 'TextLabel' {

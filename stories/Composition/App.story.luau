@@ -34,9 +34,9 @@ local function Story(props)
                 BackgroundTransparency = 1,
 
                 [Children] = {
-                    scope:Button {},
                     scope:TextButton {
                         Text = 'Download',
+                        Background = Amiya.Layouts.Button1
                     },
 
                     scope:New 'Frame' {

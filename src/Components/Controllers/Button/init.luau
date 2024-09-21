@@ -22,7 +22,6 @@ local function Button(
         Position: UsedAs<UDim2>?,
         BackgroundTransparency: UsedAs<number>?,
         BackgroundColor3: UsedAs<Color3>?,
-        Background: string?,
         CornerRadius: UDim?,
     }>
 ): Button
@@ -50,6 +49,7 @@ local function Button(
                         Image = props.Background,
                         ImageColor3 = props.BackgroundColor3 or Scheme.Color.Header,
                         ImageTransparency = props.BackgroundTransparency or 0,
+                        BackgroundTransparency = 1,
                     }
                     else deriveScope:New 'TextButton' {
                         Name = 'Click',

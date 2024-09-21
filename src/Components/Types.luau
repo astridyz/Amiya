@@ -42,7 +42,14 @@ export type TopAppBar<buttons = {}> = Frame & {
     } & buttons,
 }
 
-export type Button<derived = {}> = TextButton & derived
+export type Button<derived = {}> = Frame & {
+    Background: (ImageButton | TextButton) & derived & {
+        ColorLayer: Frame & {
+            UICorner: UICorner
+        },
+        UICorner: UICorner
+    }
+}
 
 export type AmiyaTextButton<derived = {}> = derived & Button<{ Text: TextLabel }>
 
@@ -50,6 +57,7 @@ export type TextButtonProps = {
     Size: UsedAs<UDim2>?,
     LayoutOrder: UsedAs<number>?,
     OnClick: () -> ()?,
+    Background: string?,
 }
 
 export type IconButton<derived = {}> = derived & Button<{ Icon: ImageLabel }>
