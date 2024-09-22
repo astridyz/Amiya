@@ -53,6 +53,7 @@ local function Button(
                     }
                     else deriveScope:New 'TextButton' {
                         Name = 'Click',
+                        BackgroundTransparency = props.BackgroundTransparency or 0,
                         BackgroundColor3 = props.BackgroundColor3 or Scheme.Color.Header,
                     }
             ) {

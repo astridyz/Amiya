@@ -80,6 +80,7 @@ export type Switch = Button<{}>
 
 export type TogglingProps = {
     Toggled: Fusion.Value<boolean>?,
+    Size: UDim2?,
     OnClick: (toggled: Fusion.StateObject<boolean>) -> ()?
 }
 

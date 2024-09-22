@@ -3,7 +3,6 @@ local Components = script.Parent.Parent
 local Amiya = Components.Parent
 local Modules = Amiya.Modules
 
-local Assets = require(Modules.Assets)
 local Scheme = require(Modules.Schemes.Default)
 
 local Fusion = require(Amiya.Parent.Fusion)
@@ -26,29 +25,32 @@ local function Checkbox(
     local toggled: Value<boolean> = props.Toggled :: any
 
     return Button(scope, {
-        Size = UDim2.fromOffset(30, 30),
+        Size = props.Size or UDim2.fromOffset(30, 30),
         ZIndex = props.ZIndex or 1,
-
-        BackgroundColor3 = Computed(scope, function(use)
-            return use(toggled) and Scheme.Color.Header or Scheme.Color.DarkHeader
-        end),
+        BackgroundTransparency = 1,
+        CornerRadius = UDim.new(0, 2.5),
 
         [Children] = {
-            CheckMark = scope:New 'ImageLabel' {
-                BackgroundTransparency = 1,
-                Image = Assets.Icons.Check,
-                ImageColor3 = Scheme.Color.Background,
+            CheckMark = scope:New 'Frame' {
+                BackgroundColor3 = Scheme.Color.Header,
 
                 AnchorPoint = Vector2.new(0.5, 0.5),
 				Position = UDim2.fromScale(0.5, 0.5),
-				Size = UDim2.fromScale(0.7, 0.7),
-                ImageTransparency = Fusion.Computed(scope, function(use)
+				Size = UDim2.fromScale(0.8, 0.8),
+
+                BackgroundTransparency = Computed(scope, function(use)
                     return use(toggled) and 0 or 1
                 end)
             },
 
             scope:New 'UIAspectRatioConstraint' {
                 AspectRatio = 1
+            },
+
+            scope:New 'UIStroke' {
+                Thickness = 1.5,
+                ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
+                Color = Scheme.Color.Header
             }
         },
 

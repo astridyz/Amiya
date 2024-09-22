@@ -88,7 +88,7 @@ local function Window(
                 TileSize = UDim2.fromScale(0.4, 0.4),
             },
 
-            (if props.AspectRatio >= 0
+            (if props.AspectRatio and props.AspectRatio >= 0
                 then deriveScope:New 'UIAspectRatioConstraint' {
                     AspectRatio = props.AspectRatio or 3 / 2,
                         AspectType = Enum.AspectType.ScaleWithParentSize,

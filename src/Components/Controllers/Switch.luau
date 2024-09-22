@@ -26,7 +26,7 @@ local function Switch(
     local toggled: Value<boolean> = props.Toggled :: any
 
     return Button(scope, {
-        Size = UDim2.fromOffset(40, 20),
+        Size = props.Size or UDim2.fromOffset(40, 20),
         CornerRadius = UDim.new(0.9),
         ZIndex = props.ZIndex or 1,
 
